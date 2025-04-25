@@ -3,8 +3,8 @@ joblib
 numpy
 pandas
 matplotlib
+gunicorn
 seaborn
 scikit-learn
 xgboost
 imbalanced-learn
-gunicorn
