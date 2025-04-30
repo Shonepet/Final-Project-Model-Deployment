@@ -11,7 +11,9 @@ model = joblib.load(model_path)
 
 @app.route('/')
 def home():
-    return "Welcome to PayPal Fraud Detection API!"
+    import os
+    model_exists = os.path.exists(os.path.join(os.path.dirname(__file__), 'model.pkl'))
+    return f"Model found: {model_exists}"
 
 @app.route('/predict', methods=['POST'])
 def predict():
