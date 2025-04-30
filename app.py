@@ -1,9 +1,13 @@
 from flask import Flask, request, jsonify
 import joblib
 import numpy as np
+import os
 
 app = Flask(__name__)
-model = joblib.load("model.pkl")
+
+# Absolute path fix
+model_path = os.path.join(os.path.dirname(__file__), "model.pkl")
+model = joblib.load(model_path)
 
 @app.route('/')
 def home():
@@ -19,3 +23,4 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
